@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "coffee-shop"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = {extras = ["all"], version = "^0.115.12"}
+starlette = "^0.46.1"
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.39"}
+uvicorn = {extras = ["standart"], version = "^0.34.0"}
+alembic = "^1.15.1"
+apscheduler = "^3.11.0"
+pydantic-settings = "^2.8.1"
+aiosqlite = "^0.21.0"
+orjson = "^3.10.16"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
