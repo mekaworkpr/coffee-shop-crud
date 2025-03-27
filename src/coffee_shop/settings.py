@@ -1,6 +1,6 @@
 from enum import Enum
 from pathlib import Path
-from typing import Optional, Literal
+from typing import Literal
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -16,7 +16,7 @@ class LogLevel(str, Enum):
 
 
 class Settings(BaseSettings):
-    PROJECT_NAME: str = "ChildTracker"
+    PROJECT_NAME: str = "Coffee Shop"
 
     UVICORN_HOST: str = "localhost"
     UVICORN_PORT: int = 8000
@@ -33,7 +33,6 @@ class Settings(BaseSettings):
     ALGORITHM: str
     ACCESS_TOKEN_EXPIRE_MINUTES: int
     REFRESH_TOKEN_EXPIRE_MINUTES: int
-
 
     model_config = SettingsConfigDict(
         env_file=BASE_DIR.joinpath(".env"),

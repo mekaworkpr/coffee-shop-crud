@@ -1,6 +1,6 @@
 import enum
-from sqlalchemy import Column, Integer, String, Float, ForeignKey, DateTime, Enum, func
-from sqlalchemy.orm import relationship
+
+from sqlalchemy import Column, Integer, Float, ForeignKey, DateTime, Enum, func
 
 from coffee_shop.sqlalchemy_db.base import Base
 
@@ -20,6 +20,3 @@ class Order(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     status = Column(Enum(OrderStatus), default=OrderStatus.PENDING, nullable=False)
     total_price = Column(Float, nullable=False)
-
-    user = relationship("User", back_populates="orders")
-    items = relationship("OrderItem", back_populates="order", cascade="all, delete-orphan")
