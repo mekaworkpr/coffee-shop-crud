@@ -43,9 +43,9 @@ class BaseCRUD(metaclass=ABCMeta):
     async def prepare_record(self, record):
         pass
 
-    async def get_by_pk(self, pk: Any, pk_name: str) -> model:
+    async def get_by_pk(self, pk: Any, pk_name: str, session: AsyncSession) -> model:
         return await self.get(
-            filters=[getattr(self.model, pk_name) == pk]
+            filters=[getattr(self.model, pk_name) == pk], session=session
         )
 
     async def get(self, filters: list, order_by: list | None = None, options: list | None = None,
